@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 assert_cmd = "1"
-clap = "4.0.18"
+clap = { version = "4.0.18", features = [ "derive" ] }
