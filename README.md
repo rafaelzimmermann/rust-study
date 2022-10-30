@@ -21,5 +21,24 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 - test:  
   `cargo test`
 
+## Projects
+
+### zecho
+
+```bash
+$ zecho -h
+
+Display a line of text
+
+Usage: zecho [OPTIONS] [TEXT]...
+
+Arguments:
+  [TEXT]...  
+
+Options:
+  -s             
+  -h, --help     Print help information
+  -V, --version  Print version information
+```
 
 
