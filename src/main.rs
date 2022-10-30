@@ -1,5 +1,9 @@
+use clap::Command;
+
 fn main() {
-    // cargo run -- your args here
-    // output: Args { inner: ["target/debug/rust-cmd", "your", "args", "here"] }
-    println!("{:?}", std::env::args());
+    let _matches = Command::new("zecho")
+        .version("0.1.0")
+        .author("Rafael Zimmermann")
+        .about("Rust echo")
+        .get_matches();
 }
