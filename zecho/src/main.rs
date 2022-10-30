@@ -8,8 +8,10 @@ use std::string::String;
 #[command(about = "Display a line of text", long_about = None)]
 #[command(trailing_var_arg=true)]
 struct Arg {
-    #[arg(short, default_value_t = false)]
+    #[arg(short, default_value_t = false, help = "remove trailling spaces")]
     strip: bool,
+    #[arg(short, default_value_t = false, help = "do not output the trailing newline")]
+    no_new_line: bool,
     #[arg(allow_hyphen_values=true)]
     text: Vec<String>,
 }
@@ -26,6 +28,6 @@ fn main() {
         text = remove_whitespace(&text);
     }
     let output = format!("{}", text);
-    
-    println!("{}", output);
+    let sufix = if cli.no_new_line { "" } else { "\n" };
+    println!("{}{}", output, sufix);
 }
