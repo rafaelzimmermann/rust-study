@@ -1,4 +1,5 @@
-use clap::{Parser};
+use clap::Parser;
+use std::string::String;
 
 #[derive(Parser, Debug)]
 #[command(name = "zecho")]
@@ -13,8 +14,18 @@ struct Arg {
     text: Vec<String>,
 }
 
+fn remove_whitespace(s: &String) -> String{
+    return s.split_whitespace().collect();
+}
+
 fn main() {
     let cli = Arg::parse();
-    let output = format!("{}", cli.text.join(" "));
+    let mut text =  cli.text.join(" ");
+
+    if cli.strip {
+        text = remove_whitespace(&text);
+    }
+    let output = format!("{}", text);
+    
     println!("{}", output);
 }
