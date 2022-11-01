@@ -6,7 +6,7 @@ const EXIT_CODE_ARG_ERROR: i32 = 1;
 #[derive(Parser, Debug)]
 #[command(name = "zecho")]
 #[command(author = "Rafael Zimmermann <rafael@blackcoffee.page>")]
-#[command(version = "1.0")]
+#[command(version = "0.1.0")]
 #[command(about = "Display a line of text", long_about = None)]
 #[command(trailing_var_arg=true)]
 struct Arg {
