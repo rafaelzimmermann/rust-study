@@ -41,4 +41,21 @@ Options:
   -V, --version  Print version information
 ```
 
+### zcat
+
+```bash
+$ zcat -h
+Display a line of text
+
+Usage: zcat [OPTIONS] [FILES]...
+
+Arguments:
+  [FILES]...  
+
+Options:
+  -n, --number                  number all output lines
+  -b, --number-non-blank-lines  number nonempty output lines, overrides -n
+  -h, --help                    Print help information
+  -V, --version                 Print version information
+```
 
