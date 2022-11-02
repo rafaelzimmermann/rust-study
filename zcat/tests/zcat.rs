@@ -4,7 +4,7 @@ use assert_cmd::Command;
 fn it_breaks_when_file_does_not_exists() {
     let mut cmd = Command::cargo_bin("zcat").unwrap();
     cmd.arg("unkown_file.log");
-    cmd.assert().failure().stderr("zcat: unkown_file.log: No such file or directory\n");
+    cmd.assert().failure().stderr("zcat: No such file or directory (os error 2)\n");
 }
 
 #[test]
@@ -44,6 +44,6 @@ fn it_prints_files_that_exists() {
     cmd.arg("tests/inputs/success.txt");
     cmd.assert()
         .failure()
-        .stderr("zcat: unkown_file.log: No such file or directory\n")
+        .stderr("zcat: No such file or directory (os error 2)\n")
         .stdout("This file exists");
 }
