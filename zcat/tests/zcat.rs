@@ -18,7 +18,23 @@ fn it_prints_files() {
 fn it_prints_file_with_multiple_lines() {
     let mut cmd = Command::cargo_bin("zcat").unwrap();
     cmd.arg("tests/inputs/file_with_2_lines.txt");
-    cmd.assert().success().stdout("Line 1\nLine 2");
+    cmd.assert().success().stdout("Line 1\n\nLine 2");
+}
+
+#[test]
+fn it_prints_line_counter_on_front_of_each_line() {
+    let mut cmd = Command::cargo_bin("zcat").unwrap();
+    cmd.arg("-n");
+    cmd.arg("tests/inputs/file_with_2_lines.txt");
+    cmd.assert().success().stdout("1 Line 1\n2 \n3 Line 2");
+}
+
+#[test]
+fn it_prints_line_counter_on_front_of_each_non_empty_line() {
+    let mut cmd = Command::cargo_bin("zcat").unwrap();
+    cmd.arg("-b");
+    cmd.arg("tests/inputs/file_with_2_lines.txt");
+    cmd.assert().success().stdout("1 Line 1\n\n2 Line 2");
 }
 
 #[test]
